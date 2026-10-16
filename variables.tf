@@ -209,7 +209,9 @@ variable "policies" {
       compartment_id (optional) compartment or tenancy OCID to attach the policy
                      to; defaults to compartment_id
       version_date   (optional) pin the policy-language version (YYYY-MM-DD); null
-                     tracks the current language
+                     tracks the current language. Removing it later keeps the
+                     current pin (OCI cannot clear it); re-create the policy to
+                     unpin it
       tags           (optional) freeform tags merged over var.tags
       defined_tags   (optional) defined tags merged over var.defined_tags
 
