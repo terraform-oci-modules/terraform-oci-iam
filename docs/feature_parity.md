@@ -165,7 +165,9 @@ read-only document).
 > **`version_date`**: pinning `version_date` freezes the policy against a dated version
 > of the OCI policy language, so later platform changes to verb or resource-type
 > semantics do not silently widen or narrow a grant. Leaving it null tracks the current
-> language.
+> language. Removing it from an existing policy keeps the current pin: the provider
+> cannot clear it and the plan shows no change. To unpin, re-create the policy (rename
+> its key, or remove it and add it back), which leaves it absent for a moment.
 >
 > **Apply ordering**: OCI validates each statement against existing groups, dynamic
 > groups and compartments at policy-create time. The module puts a `depends_on` from
